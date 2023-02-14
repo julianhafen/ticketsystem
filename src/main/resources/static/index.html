@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketsystem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <nav class="navbar navbar-dark bg-dark">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <button id="register">Registrieren</button>
+                </li>
+                <li class="nav-item">
+                    <button id="login">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button id="navticketoverview">Ticketübersicht</button>
+                </li>
+              </ul>
+        </nav>     
+    </div>
+    <div class="main">  
+        <h1>Ticketsystem</h1>  
+        <div class="signin" hidden>
+            <div class="form-group">
+                <label for="lblname">Vorname:</label>
+                <input type="text" class="form-control" id="namesignin" placeholder="Vorname eingeben">
+              </div>
+              <div class="form-group">
+                <label for="lblsurname">Nachname:</label>
+                <input type="text" class="form-control" id="surnamesignin" placeholder="Nachname eingeben">
+              </div>
+                <div class="form-group">
+                  <label for="lblemailsignin">E-Mail Adresse:</label>
+                  <input type="email" class="form-control" id="emailsignin" aria-describedby="emailHelp" placeholder="E-Mail eingeben">
+                </div>
+                <div class="form-group">
+                  <label for="lblpwdsignin1">Passwort:</label>
+                  <input type="password" class="form-control" id="pwdsignin" placeholder="Passwort">
+                </div>
+                <div class="form-group">
+                    <label for="lblrole">Rolle:</label>
+                    <select class="form-control" id="roleselect">
+                      <option>Lehrer</option>
+                      <option>Raumbetreuer</option>
+                    </select>
+                </div>
+                <div class="room-overview"></div>
+                <button class="btn btn-primary" id="submitsignin">Registrieren</button>
+                <button class="btn btn-primary" id="submitrooms" hidden>Räume zuweisen</button>                
+
+        </div> <!--End of signin-->
+
+        <div class="login" hidden>
+                <div class="form-group">
+                  <label for="lblemaillogin">E-Mail Adresse:</label>
+                  <input type="email" class="form-control" id="emaillogin" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="lblpwdlogin">Passwort:</label>
+                  <input type="password" class="form-control" id="pwdlogin" placeholder="Password">
+                </div>
+                <button class="btn btn-primary" id="submitlogin">Anmelden</button>
+        </div> <!--End of login-->
+
+        <div class="ticketoverview" hidden>
+            <div class="table-responsive">
+                <table class="table table-striped" id="tickettable">
+                    <thead>
+                        <tr class="firsttablerow">
+                            <th scope="col"></th>
+                            <th scope="col">Titel</th>
+                            <th scope="col">Raum</th>
+                            <th scope="col">Beschreibung</th>
+                            <th scope="col">Datum</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                    
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" id="newticket" hidden>+ Neues Ticket erstellen</button>
+            </div> <!--End of ticketoverview-->
+        </div>
+
+        <div class="ticketdetail" hidden>
+        	<lable id="lbltitle">Titel: </label>
+        	</br>
+            <label id="lblcreator">Ersteller: </label>
+            </br>
+            <label id="lblroom">Raum: </label>
+            </br>
+            <label id="lbldescription">Beschreibung: </label>
+            </br>
+            <label id="lbldate">Datum: </label>
+            </br>
+            <label id="lblstate">Status: <select id="stateselection" hidden>
+                <option>offen</option>
+                <option>in Bearbeitung</option>
+                <option>fertig</option>
+            </select></label>
+            </br>
+            <button id="submitstatechange" hidden>Ticket aktualisieren</button>
+        </div> <!--End of ticketdetail-->
+        
+        <div class="ticketcreation" hidden>
+            <label>Titel: 
+                <input id="title" type="text">
+            </label>
+        </br>
+            <label>Raum: 
+                <select class="form-control" id="roomselect">
+                </select>
+            </label>
+        </br>
+            <label>Beschreibung: 
+                <input id="description" type="text">
+            </label>
+        </br>
+            <button class="btn btn-primary" id="submitticket">Ticket erstellen</button>
+        </div> <!--End of ticketcreation--> 
+    </div>
+</body>
+</html>
